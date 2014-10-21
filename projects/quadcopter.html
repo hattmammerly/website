@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Personal website of Matt Hammerly">
+        <meta name="author" content="Matt Hammerly">
+        <link rel='stylesheet' type='text/css' href='/assets/style.css'>
+        <title>quadcopter | hattmammerly dot com</title>
+    </head>
+    <body>
+        <div id='container'>
+            <!--#include virtual="/ssi/header.html" -->
+            <div id='content'>
+                <h1>Quadcoptor</h1>
+                <p>I spent the summer after I graduated high school designing and building a quadcopter. The drone itself is awful, but I learned a lot from the mistakes I made.</p>
+                <h3>I am not an engineer</h3>
+                <p>Despite what my university tells me. I went into this project without a thought in my head about what I wanted out of it, and consequently the drone is a perfect storm of poor planning.
+                  I bought the parts as I needed them, and I fit them into the design as I got them. The most hilarious example I can give is the battery's assimilation into the design; I realized I left
+                  no place for it with the other electronics, so I hammered some scrap aluminum into a crude battery-shaped pouch and bolted it to the bottom of the whole thing. Now, batteries are
+                  <em>shockingly</em> heavy (lol), so the weight distribution of the entire quadcopter was way out of whack. I thought I could compensate for this in the stabilization code, but...</p>
+                  <h3>Who needs a stupid compass anyway?</h3>
+                  <p>The section title was lifted from a facebook conversation with my friend about the project. I wanted to tack a camera on the bottom of the drone so I could take pictures of things
+                    from above other things, so I wanted a barometer onboard so the drone could maintain altitude. I didn't intend for the drone to be autonomous beyond that, so I bought one instead of a
+                    magnetometer. There was literally no reason I couldn't have both, but I guess I thought it was possible to describe me with both 'frugal' and 'building a flying robot'.<br/><br/>
+                    It turns out, I really needed a compass. The stabilization code was written to keep measured euler angles within a range calculated based on RC inputs. All I really cared about was
+                    maintaining the pitch and roll axes to keep the copter level, but it turns out that those axes were established relative to compass directions instead of the sensors' orientation.
+                    My IMU was comprised of only an accelerometer and a gyroscope, and without a compass on board my yaw axis (the one in the same plane as compass directions) measurements were basically
+                    random. They drifted at about one degree per second, so after ten or so seconds they are so far off that the stabilization code does more harm than good, and the copter crashes /hard/.</p>
+                  <h3>Not everything was a failure!</h3>
+                  <p>This was my first project at as low a level as this. Wiring the I2C bua was my first real exposure to circuitry; writing the controller code was my first exposure to hardware interrupts.
+                    Since sensor readings occurred thousands of times per second, efficiency actually mattered. I even got a tidbit of compiler knowledge when some undesired optimizations required the use
+                    of the <em>volatile</em> keyword to prevent. I learned a lot from my failures, but I also learned a lot from my successes.</p>
+                  <h3>Lessons I learned so you won't have to</h3>
+                  <ul>
+                      <li>Design your drone in advance. I know for my next attempt I hope to 3D print the chassis, which requires that the chassis actually be designed first.</li>
+                      <li>Decide what's vital, and use that as a foundation for any novelties you want to incorporate. What good is a camera attachment if the drone won't fly?</li>
+                      <li>Keep track of the weight of all your parts. My copter struggled to lift itself more than I thought it would. Do a little math to make sure your motors can lift everything.</li>
+                  </ul>
+            </div>
+        </div>
+    </body>
+</html>

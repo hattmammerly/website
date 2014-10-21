@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Personal website of Matt Hammerly">
+        <meta name="author" content="Matt Hammerly">
+        <link rel='stylesheet' type='text/css' href='/assets/style.css'>
+        <title>hattmammerly dot com</title>
+    </head>
+    <body>
+        <div id='container'>
+            <!--#include virtual="/ssi/header.html" -->
+            <div id='content'>
+                <h2>Projects</h2>
+                <div class="project">
+                    <h4><a href="//github.com/hattmammerly/quadrotor/" id="quadrotor">Quadrotor helicopter</a></h4>
+                    <p><em>Languages: C (with Arduino extensions)<br/>Powered by an Arduino Mega. Designed and built from scratch.</em></p>
+                    <p>Custom flight control board powered by an Arduino Mega. Designed and built from scratch.
+                    The summer after graduating high school, I built a quadcopter to familiarize
+                    myself with low-level programming and hardware concepts. I learned about a lot
+                    more than that, which you can read about <a href="quadcopter.html">here</a>.</p>
+                </div>
+                <div class="project">
+                    <h4><a href="//github.com/hattmammerly/pythonplaylistparser" id="ppp">Music library management scripts</a></h4>
+                    <p><em>Languages: Python<br/>Suite of python utlities to manage an iTunes library on Linux</em></p>
+                    <p>I don't use an iPod anymore, but my media is all still managed in iTunes. I
+                    wrote a python script that can export iTunes playlists to arbitrary formats
+                    (it reads from templates; m3u is included but writing one for another playlist
+                    format is rather simple). It can also do some basic analysis of library contents,
+                    such as listing all artists with fewer than a certain number of songs. Since I
+                    wrote this to use my library on an ext4 filesystem, it also case-sensitizes filepaths since
+                    iTunes likes to record case-incorrect filepaths because NTFS and HFS+ let it.</p>
+                </div>
+                <div class="project">
+                    <h4><a href="/" id="homepage">This website</a></h4>
+                    <p><em>Languages: HTML, CSS<br/>Personal webpage and portfolio</em></p>
+                    <p>There's nothing technically interesting about this site. It's handwritten static HTML and CSS.
+                    But! It's functional, and not Javascript-dependent! The theme is gray and drab, like my personality.</p>
+                </div>
+                <div class="project">
+                    <h4>Work projects</h4>
+                    <p><em>Languages: PHP, HTML, CSS, Javascript<br/>Web development at the Facility for Rare Isotope Beams</em></p>
+                    <p>The development I do at FRIB is all internal, so it can't really be exhibited in
+                    a portfolio. I work with our SharePoint site, writing PowerShell and clientside Javascript,
+                    and with an internally-developed website utilizing the MVC paradigm in PHP.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
